@@ -1,8 +1,18 @@
+const api = "https://jsonplaceholder.typicode.com/posts"
 
-new Promise(function(resolve) {
-  console.log('first');
-  resolve();
-  console.log('second');
-}).then(function() {
-  console.log('third');
-});
+
+const check =(url)=>{
+    const data= fetch(url)
+    const data1= data.then(response=>response.json())
+     data1.then(finadata=>{
+    console.log(finadata.filter((a)=>a.id<10))
+  })
+  .catch(err=>{
+    console.log(err)
+  });
+  
+    
+}
+
+
+check(api)
